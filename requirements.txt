@@ -4,3 +4,5 @@ sympy
 numpy
 pandas
 matplotlib
+
+The code has been tested in PYTHON version 3.7.
