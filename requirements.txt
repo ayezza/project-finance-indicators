@@ -1,0 +1,6 @@
+Following libraries should be installed on the development environment:
+scipy
+sympy
+numpy
+pandas
+matplotlib
