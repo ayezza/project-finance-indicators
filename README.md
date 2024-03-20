@@ -1,5 +1,6 @@
 # project-finance-indicators
 This code is completely free and can be modified without any restriction 
+
 Examples given below are presented and explained in my article : 
 QUELQUES NOTIONS DE BASE DE LA FINANCE DES PROJETS available at one of these web addresses : 
 1. [http://abdel.yezza.free.fr/prog/basic_finance_elements-v2.pdf](url).
