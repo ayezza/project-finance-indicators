@@ -1,8 +1,5 @@
-Following libraries should be installed on the development environment:
 scipy
 sympy
 numpy
 pandas
 matplotlib
-
-The code has been tested in PYTHON version 3.7.
