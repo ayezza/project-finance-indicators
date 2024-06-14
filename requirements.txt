@@ -3,3 +3,4 @@ sympy
 numpy
 pandas
 matplotlib
+numpy_financial
