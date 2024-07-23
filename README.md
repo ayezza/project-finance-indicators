@@ -11,3 +11,6 @@ NPV (Net Present Value), IRR (Internal Rate of Return), TEG (Taux Effectif Globa
 PBP (Payback Period), DPBP (Discounted Payback Period), PI (Profitability Index) etc.
 
 To have good understanding of these financial terms technically, it is recommended to read the article mentioned above.
+
+REGARDS
+Abdel YEZZA, Ph.D
