@@ -1,23 +1,38 @@
+# 📊 Project Finance Indicators
 
-# project-finance-indicators
-This code is completely free and can be modified without any restriction 
+A Python tool for calculating and visualizing project financial indicators.
 
-Examples given below are presented and explained in my article : 
-QUELQUES NOTIONS DE BASE DE LA FINANCE DES PROJETS available at one of these web addresses : 
-1. [basic_finance_elements-v3.pdf](https://www.anigraphics.fr/introduction/math_finance/basic_finance_elements-v3.pdf)
-2. [https://www.linkedin.com/feed/update/urn:li:activity:6576694086428827648/](https://www.linkedin.com/feed/update/urn:li:activity:6576694086428827648/)
+## 📝 Description
 
-The code below written in PYTHON shows how to compute the following indicators : PV (Present Value), FV (Future Value), 
-NPV (Net Present Value), IRR (Internal Rate of Return), TEG (Taux Effectif Global), MIRR (Modified Internal Rate of Return), 
-PBP (Payback Period), DPBP (Discounted Payback Period), PI (Profitability Index) etc.
+This code is completely free and can be modified without any restriction.
 
-To have good understanding of these financial terms technically, it is recommended to read the article mentioned above.
+This project provides a comprehensive suite of tools for calculating and visualizing key financial indicators used in project evaluation. The concepts are presented and explained in the article "QUELQUES NOTIONS DE BASE DE LA FINANCE DES PROJETS" available here:
+- [basic_finance_elements-v3.pdf](https://www.anigraphics.fr/introduction/math_finance/basic_finance_elements-v3.pdf)
+- [LinkedIn Article](https://www.linkedin.com/feed/update/urn:li:activity:6576694086428827648/)
 
-REGARDS
-Abdel YEZZA, Ph.D
+To have a good understanding of these financial terms technically, it is recommended to read the article mentioned above.
 
+## 🔍 Features
 
-## 📦 Installation
+### Financial Indicators
+- **PV (Present Value)**: Calculate the present value of future cash flows
+- **FV (Future Value)**: Calculate the future value of current investments
+- **NPV (Net Present Value)**: Evaluate project profitability
+- **IRR (Internal Rate of Return)**: Calculate the project's internal rate of return
+- **TEG (Global Effective Rate)**: Determine the global effective interest rate
+- **MIRR (Modified Internal Rate of Return)**: Calculate the modified internal rate of return
+- **PBP (Payback Period)**: Determine how long it takes to recover the investment
+- **DPBP (Discounted Payback Period)**: Calculate the discounted payback period
+- **PI (Profitability Index)**: Measure relative profitability of investments
+
+### Advanced Features
+- **Amortization Tables**: Generate detailed amortization schedules
+- **Visualizations**: Automatic plotting of all key indicators
+- **Automatic Export**:
+  - Graphs are saved in `./output/graphs`
+  - Data is exported as CSV in `./output/data`
+
+## 🛠️ Installation
 
 1. **Create a virtual environment**:
 ```bash
@@ -41,24 +56,34 @@ pip install numpy pandas scipy sympy matplotlib numpy_financial
 
 ## 📚 Usage
 
-### 📚 Basic Usage
+### Basic Execution
 ```bash
 python main.py
 ```
 
+### Available Examples
+The `main.py` file contains several practical examples:
+- `example_1_1_1_1`: Solving complex financial equations
+- `example_1_1_1`: Calculating IRR, MIRR, and payback periods
+- `example_5_1`: Project comparison using NPV
+- `example_7_2`: Generating amortization tables
 
-## 📄 Output
-  1. Output data for all examples in main program entry
-  2. All associated 📊visualizations with indicators
+### Output Structure
+- **Graphs**: Saved in `./output/graphs` with timestamps
+- **Data**: Exported as CSV in `./output/data` with timestamps
+- **Console**: Detailed display of calculations and results
 
-## 📜 License
-
-This project is open source and available under GNU GENERAL PUBLIC LICENSE.
+## 📊 Visualization Examples
+- Cumulative cash flow evolution
+- NPV/IRR project comparisons
+- Amortization tables with payment breakdowns
+- Break-even points and recovery periods
 
 ## 🤝 Contributing
-
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 🤝 Regards
+## ✍️ Author
+**Abdel YEZZA, Ph.D**
 
-Abdel YEZZA, Ph.D
+## 📄 License
+This code is completely free and can be modified without any restriction.
