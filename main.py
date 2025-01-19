@@ -9,7 +9,8 @@ https://www.anigraphics.fr/introduction/math_finance/basic_finance_elements-v3.p
 """
 
 import sys
-from pandas.io.formats import style
+# import Jinja2
+# from pandas.io.formats import style
 from scipy import optimize
 import sympy
 # numpy is no more supported and replaced by numpy_financial for some functions
@@ -47,6 +48,7 @@ def compute_mirr(cash_flows=list(), rate=0):
     :return: mirr value of cash_flows data list
     """
     return npf.mirr(cash_flows, rate, rate)
+
 
 def compute_periodic_payment(rate=0.5, n_periods=1, principal=1, fv=0, when='begin'):
     """This function computes periodic payment for a loan with
@@ -128,6 +130,7 @@ def compute_cum_cf(rate, cash_flows=list()):
         rated_cf.append(npf.npv(rate, cum_cf))
     return rated_cf
 
+
 def plot_2d_graph(x_data=list(), y_data=list(), plot_params = None):
     # set default used plot parameters if passed in plot_params
     default_plot_params = {'title': '', 'fontsize': '12', 'fontname': 'arial', 'color': '#000000', 'x_label': 'variable',
@@ -184,19 +187,23 @@ def add_annotation_to_graph(fig=None, ax=None, p=None, text='', xytext=None,
     ax.annotate(text, fontsize=12, family="serif", xy=p, xycoords="data", textcoords="offset points",
                 xytext=xytext, arrowprops=arrowprops)
 
+
 def solve_by_newton_algo(f, x0):
     # solve equation f(x)=0 with respect to x variable and x0 as initial guess value
     return optimize.newton(f, x0)
 
+
 def solve_by_bisect_algo(f, a, b, x_tol=0.000001):
     # solve equation f(x)=0 using bisection method with respect to x variable limited 
-    # to interval [a, b] with w tolerance of x_tol
+    # to interval [a, b] with a tolerance of x_tol
     return optimize.bisect(f, a, b, xtol=x_tol)
+
 
 def solve_by_brentq_algo(f, a, b, x_tol=0.000001):
     # solve equation f(x)=0 using "Brent's method with respect to x variable 
-    # limited to interval [a, b] with w tolerance of x_tol
+    # limited to interval [a, b] with a tolerance of x_tol
     return optimize.brentq(f, a, b, xtol=x_tol)        
+
 
 def compute_pi(rate, cash_flows=list()):
     # convert list to pandas DataFrame object
@@ -216,6 +223,7 @@ def compute_pi(rate, cash_flows=list()):
 
 
 def example_1_1_1_1():
+    print('\n\nexample_1_1_1_1 =================================================================================================')
     # define our function
     def f(x):
         return -10 * x ** 9 - 2 * x ** 8 + x ** 7 + 2 * x ** 6 + 5 * x ** 5 + 6 * x ** 4 + \
@@ -231,11 +239,14 @@ def example_1_1_1_1():
 
     print('Apply Newton method to our equation :\n' + str(f(x)) + ' = 0')
     sol = solve_by_newton_algo(f, 5)
+    print('Found solution by Newton algo: x=' + str(sol))
     # alternatively we can use other alogos
     sol = solve_by_bisect_algo(f, .1, 10)
+    print('Found solution by BISECT algo: x=' + str(sol))
     sol = solve_by_brentq_algo(f, .1, 10)
+    print('Found solution by BRENT algo: x=' + str(sol))
 
-    print('Found solution: x=' + str(sol))
+    
     # add annotation to found solution
     add_annotation_to_graph(fig, ax, [sol, 0], 'Equation solution: ' + str(round(sol, 5)),
                             xytext=(sol + 20, 0 + 50),
@@ -246,6 +257,7 @@ def example_1_1_1_1():
 def example_1_1():
     rate = 0.05  # rate = 5%
     cash_flows = [-100000, -20000, 10000, 20000, 50000, 60000, 70000, 80000, 80000, 90000]
+    print('\n\nexample_1_1 =================================================================================================')
     print('Exemple 1_1: Calcul de la NPV')
     print('Discount rate: ' + str(rate))
     print('cash flows data: ' + str(cash_flows) )
@@ -256,25 +268,29 @@ def example_1_1_1():
     cash_flows = [-100000, -20000, 10000, 20000, 50000, 60000, 70000, 80000, 80000, 90000]
     rate = 0.05  # 5% rate
     cum_disc_cash_flows = compute_cum_cf(rate, cash_flows)
+    print('\n\n=================================================================================================')
     print('Exemple 1_1_1: Calcul du IRR')
     print('cash flows data: ' + str(cash_flows))
     print('IRR = ' + str(round(compute_irr(cash_flows), 5)))
 
+    print('\n\n=================================================================================================')
     print('Exemple 1_1_1: Calcul du MIRR')
     print('cash flows data: ' + str(cash_flows))
     print('rate value: ' + str(rate))
     print('MIRR = ' + str(round(compute_mirr(cash_flows, rate), 5)))
 
-    print('Get Payback period (PBP) value')
+    print('\n\n=================================================================================================')
+    print('Exemple 1_1_1: Get Payback period (PBP) value')
     pbp = payback_period(cash_flows)
     print('PBP = ' + str(pbp))
 
-    print('Get discounted Payback period (DPBP) value')
+    print('\n\n=================================================================================================')
+    print('Exemple 1_1_1: Get discounted Payback period (DPBP) value')
     disc_pbp = discounted_payback_period(rate, cash_flows)
     print('DPBP = ' + str(disc_pbp))
 
-
-    print('Drawing the cumulative discounted cash flows data graph...')
+    print('\n\n=================================================================================================')
+    print('Exemple 1_1_1: Drawing the cumulative discounted cash flows data graph...')
     fig, ax = plot_2d_graph([i for i in range(0, 10, 1)], cum_disc_cash_flows,
                             {'title': 'Cumulative discounted cash flow', 'fontsize': '12', 'fontname': 'arial',
                                     'color': '#000000', 'x_label': 'Periods', 'y_label': 'Discounted cash flow',
@@ -285,7 +301,8 @@ def example_1_1_1():
     fig.show()
 
 
-    print('Drawing the cumulative cash flows data graph...')
+    print('\n\n=================================================================================================')
+    print('Exemple 1_1_1: Drawing the cumulative cash flows data graph...')
     fig, ax = plot_2d_graph([i for i in range(0, 10, 1)], np.cumsum(cash_flows),
                             {'title': 'Cumulative cash flow', 'fontsize': '12', 'fontname': 'arial',
                                     'color': '#000000', 'x_label': 'Periods', 'y_label': 'Cash flow',
@@ -300,11 +317,13 @@ def example_1_1_1():
 def example_1_4():
     # compute irr
     irr = compute_irr([-400000, 1020000, -630000])
+    print('\n\n example_1_4 : =================================================================================================')
     print('irr=' + str(irr))
 
 
 def example_1_5():
     pi = compute_pi(0.05, [-100000, -20000, 10000, 20000, 50000, -60000, 70000, -80000, 80000, 90000])
+    print('\n\n example_1_5: =================================================================================================')
     print('Profitability Index = ' + str(pi))
 
 
@@ -325,6 +344,7 @@ def example_5_1():
     mirr_2 = compute_mirr(cf2, rate2)
     pi_1 = compute_pi(rate1, cf1)
     pi_2 = compute_pi(rate2, cf2)
+    print('\n\n example_5_1 =================================================================================================')
     print('NPV1: ' + str(npv_1))
     print('NPV2: ' + str(npv_2))
     print('PBP1: ' + str(pbp_1))
@@ -415,6 +435,7 @@ def example_5_2():
     irr = compute_irr(cf)
     mirr = compute_mirr(cf, rate)
     pi = compute_pi(rate, cf)
+    print('\n\n example_5_2 =================================================================================================')
     print('NPV: ' + str(npv))
     print('PBP: ' + str(pbp))
     print('DPBP: ' + str(dpbp))
@@ -454,6 +475,7 @@ def example_7_1():
     rate = 6/100  # 6% annually (1 period = 1 year)
     principal = 100000
     n_periods = 4    # 4 years
+    print('\n\n example_7_1 =================================================================================================')
     print('Exemple 7.1 : Calcul de l\'annuité')
     print('Taux d\'intérêt périodique: ' + str(rate))
     print('Montant du prêt : ' + str(principal))
@@ -465,6 +487,7 @@ def example_7_2():
     data  = get_amortization_data(6/100/12, 48, 100000, 'end')
     # convert data list to pandas DataFrame object to print some data
     pd_data = pd.DataFrame(data, columns=['Mois', 'CA', 'R', 'I', 'RC', 'CR'])
+    print('\n\n example_7_2 =================================================================================================')
     print('Les 5 premiers mois :\n' + str(pd_data.head(5)))
     print('-----------------------------------------------------------------------------------')
     print('Les 5 derniers mois :\n' + str(pd_data.tail(5)))
@@ -491,6 +514,7 @@ def example_7_4():
     rate = 4/100/12  # 4.5% annually
     principal = 100000
     n_periods = 360    # 360 months (12*30 years)
+    print('\n\n example_7_4 =================================================================================================')
     print('Exemple 7.4 : Calcul de la mensualité')
     print('Taux d\'intérêt mensuel: ' + str(rate))
     print('Montant du prêt: ' + str(principal))
