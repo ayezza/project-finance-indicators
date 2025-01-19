@@ -13,7 +13,7 @@ charset_normalizer==3.3.2
 checks==0.2
 ConfigParser==6.0.1
 contextlib2==21.6.0
-cryptography==42.0.5
+cryptography==43.0.1
 Cython==3.0.9
 dask==2024.3.1
 defcon==0.10.3
