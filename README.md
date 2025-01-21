@@ -54,6 +54,18 @@ source venv/bin/activate
 pip install numpy pandas scipy sympy matplotlib numpy_financial
 ```
 
+## 📂 Directory Structure
+project-finance-indicators/
+├── src/
+│   ├── main.py
+│   └── modules/
+│       ├── __init__.py
+│       ├── financial_calculator.py
+│       ├── loan_calculator.py
+│       ├── graph_plotter.py
+│       └── financial_examples.py
+
+
 ## 📚 Usage
 
 ### Basic Execution
