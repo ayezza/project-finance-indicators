@@ -55,6 +55,7 @@ pip install numpy pandas scipy sympy matplotlib numpy_financial
 ```
 
 ## 📂 Directory Structure
+```
 project-finance-indicators/
 ├── src/
 │   ├── main.py
@@ -64,7 +65,7 @@ project-finance-indicators/
 │       ├── loan_calculator.py
 │       ├── graph_plotter.py
 │       └── financial_examples.py
-
+```
 
 ## 📚 Usage
 
