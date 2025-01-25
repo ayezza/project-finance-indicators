@@ -16,30 +16,21 @@ from modules.financial_examples import FinancialExamples
 def main(args):
     if args is None:
         examples = FinancialExamples()
-        examples.example_1_1()
-        examples.example_1_1_1()
-        examples.example_1_4()
-        examples.example_1_5()
-        examples.example_5_1()
-        examples.example_5_2()
-        examples.example_7_1()
-        examples.example_7_2()
-        examples.example_7_4()
-        return 0
     else:
         # get the command line arguments
         examples = FinancialExamples(rate=float(args.rate), n_periods=int(args.n_periods), 
                                      principal=float(args.principal), when=args.when)
-        examples.example_1_1()
-        examples.example_1_1_1()
-        examples.example_1_4()
-        examples.example_1_5()
-        examples.example_5_1()
-        examples.example_5_2()
-        examples.example_7_1()
-        examples.example_7_2()
-        examples.example_7_4()
-        return 0
+    examples.example_1_1()
+    examples.example_1_1_1()
+    examples.example_1_4()
+    examples.example_1_5()
+    examples.example_5_1()
+    examples.example_5_2()
+    examples.example_7_1()
+    examples.example_7_2()
+    examples.example_7_4()
+    
+    return 0
 
 
 if __name__ == '__main__':
