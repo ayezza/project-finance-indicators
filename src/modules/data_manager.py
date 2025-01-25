@@ -28,14 +28,14 @@ class DataManager:
         # Clean filename and add extension
         # Create timestamp
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        clean_filename = f"{filename.replace(' ', '_').lower()}.{format}"
-        filepath = os.path.join(DataManager.OUTPUT_DIR, f"{clean_filename}_{timestamp}")
+        clean_filename = f"{filename.replace(' ', '_').lower()}_{timestamp}.{format}"
+        filepath = os.path.join(DataManager.OUTPUT_DIR, clean_filename)
         
         # Save based on format
         if format.lower() == 'csv':
-            df.to_csv(filepath, index=True)
+            df.to_csv(filepath, index=False)
         elif format.lower() == 'excel':
-            df.to_excel(filepath, index=True)
+            df.to_excel(filepath, index=False)
         else:
             raise ValueError(f"Unsupported format: {format}")
             

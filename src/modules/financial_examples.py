@@ -16,7 +16,7 @@ from .data_manager import DataManager
 class FinancialExamples:
     def __init__(self):
         self.fin_calc = FinancialCalculator()
-        self.loan_calc = LoanCalculator()
+        self.loan_calc = LoanCalculator(rate=6/100/12, n_periods=48, principal=100000, when='end')
         self.plotter = GraphPlotter()
 
     def example_1_1_1_1(self):
@@ -239,14 +239,14 @@ class FinancialExamples:
     def example_7_1(self):
         print('\n\n example_7_1 =================================================================================================')
         print('Compute periodic payment at begin of period')
-        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment_at_begin(6/100/12, 5, 1000)))
+        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment_at_begin(fv=0)))   
         print('Compute periodic payment at end of period')
-        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment_at_end(6/100/12, 5, 1000)))
+        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment_at_end(fv=0)))
 
     def example_7_2(self):
         print('\n\n example_7_2 =================================================================================================')
         print('Compute amortization table data')
-        data = self.loan_calc.get_amortization_data(6/100/12, 48, 100000, 'end')
+        data = self.loan_calc.get_amortization_data()
         df = pd.DataFrame(data, columns=['Period', 'CA', 'Payment', 'Interest', 'RC', 'CR'])
         print(df)
 
@@ -255,7 +255,7 @@ class FinancialExamples:
         print(f"\nAmortization table saved to: {saved_csv}")
 
         print('\n\nCompute amortization table data')
-        data = self.loan_calc.get_amortization_data(6/100/12, 48, 100000, 'end')
+        data = self.loan_calc.get_amortization_data()
         df = pd.DataFrame(data, columns=['Period', 'CA', 'Payment', 'Interest', 'RC', 'CR'])
         print(df)
 
@@ -283,6 +283,6 @@ class FinancialExamples:
     def example_7_4(self):
         print('\n\n example_7_4 =================================================================================================')
         print('Compute amortization table data')
-        data = self.loan_calc.get_amortization_data(0.1, 5, 1000, 'begin')
+        data = self.loan_calc.get_amortization_data()
         df = pd.DataFrame(data, columns=['Period', 'CA', 'Payment', 'Interest', 'RC', 'CR'])
         print(df)

@@ -57,14 +57,21 @@ pip install numpy pandas scipy sympy matplotlib numpy_financial
 ## 📂 Directory Structure
 ```
 project-finance-indicators/
-├── src/
-│   ├── main.py
-│   └── modules/
-│       ├── __init__.py
-│       ├── financial_calculator.py
-│       ├── loan_calculator.py
-│       ├── graph_plotter.py
-│       └── financial_examples.py
+├── output/
+│   ├── graphs/
+│   └── data/
+└── src/
+    ├── main.py
+    └── modules/
+        ├── __init__.py
+        ├── financial_calculator.py
+        ├── loan_calculator.py
+        ├── graph_plotter.py
+        └── financial_examples.py
+|─README.md
+|─basic_finance_elements-v3.pdf
+|-LICENSE
+|─requirements.txt
 ```
 
 ## 📚 Usage
