@@ -14,11 +14,8 @@ from modules.financial_examples import FinancialExamples
 
 
 def main(args):
-    if args is None:
-        examples = FinancialExamples()
-    else:
-        # get the command line arguments
-        examples = FinancialExamples(rate=float(args.rate), n_periods=int(args.n_periods), 
+    # get the command line arguments
+    examples = FinancialExamples() if args is None  else FinancialExamples(rate=float(args.rate), n_periods=int(args.n_periods), 
                                      principal=float(args.principal), when=args.when)
     examples.example_1_1()
     examples.example_1_1_1()
@@ -29,7 +26,7 @@ def main(args):
     examples.example_7_1()
     examples.example_7_2()
     examples.example_7_4()
-    
+
     return 0
 
 
