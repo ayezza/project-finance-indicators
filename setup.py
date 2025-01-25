@@ -18,7 +18,7 @@ requirements = [
 setup(
     name="project-finance-indicators",
     version="0.1.0",
-    author="ayezza",
+    author="Abdel YEZZA, Ph.D",
     description="A Python package for financial calculations and indicators",
     long_description=long_description,
     long_description_content_type="text/markdown",
