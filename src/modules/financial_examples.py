@@ -14,10 +14,43 @@ from .data_manager import DataManager
 
 
 class FinancialExamples:
-    def __init__(self):
+    def __init__(self, rate=6/100/12, n_periods=48, principal=100000, when='end'):
+        """Initialize FinancialExamples with loan parameters
+        Args:
+            rate (float): loan annual rate (between 0 and 1). Defaults to 6%/12 (monthly rate).
+            n_periods (int): number of loan duration periods. Defaults to 48.
+            principal (float): loan principal. Defaults to 100000.
+            when (str): when payments are made ('begin' or 'end'). Defaults to 'end'.
+        """
+        self.rate = rate
+        self.n_periods = n_periods
+        self.principal = principal
+        self.when = when
+        
         self.fin_calc = FinancialCalculator()
-        self.loan_calc = LoanCalculator(rate=6/100/12, n_periods=48, principal=100000, when='end')
+        self.loan_calc = LoanCalculator(rate=self.rate, n_periods=self.n_periods, 
+                                      principal=self.principal, when=self.when)
         self.plotter = GraphPlotter()
+
+    def update_loan_parameters(self, rate=None, n_periods=None, principal=None, when=None):
+        """Update loan parameters and recreate loan calculator
+        Args:
+            rate (float, optional): new loan rate. Defaults to None.
+            n_periods (int, optional): new number of periods. Defaults to None.
+            principal (float, optional): new principal amount. Defaults to None.
+            when (str, optional): new payment timing. Defaults to None.
+        """
+        if rate is not None:
+            self.rate = rate
+        if n_periods is not None:
+            self.n_periods = n_periods
+        if principal is not None:
+            self.principal = principal
+        if when is not None:
+            self.when = when
+            
+        self.loan_calc = LoanCalculator(rate=self.rate, n_periods=self.n_periods, 
+                                      principal=self.principal, when=self.when)
 
     def example_1_1_1_1(self):
         print('\n\nexample_1_1_1_1 =================================================================================================')
@@ -282,6 +315,8 @@ class FinancialExamples:
     
     def example_7_4(self):
         print('\n\n example_7_4 =================================================================================================')
+        # Update loan parameters for this specific example
+        self.update_loan_parameters(rate=0.1, n_periods=5, principal=1000, when='begin')
         print('Compute amortization table data')
         data = self.loan_calc.get_amortization_data()
         df = pd.DataFrame(data, columns=['Period', 'CA', 'Payment', 'Interest', 'RC', 'CR'])
