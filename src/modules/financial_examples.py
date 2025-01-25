@@ -316,7 +316,7 @@ class FinancialExamples:
     def example_7_4(self):
         print('\n\n example_7_4 =================================================================================================')
         # Update loan parameters for this specific example
-        self.update_loan_parameters(rate=0.1, n_periods=5, principal=1000, when='begin')
+        self.update_loan_parameters(rate=0.1, n_periods=5, principal=1000, when='end')
         print('Compute amortization table data')
         data = self.loan_calc.get_amortization_data()
         df = pd.DataFrame(data, columns=['Period', 'CA', 'Payment', 'Interest', 'RC', 'CR'])
