@@ -15,8 +15,11 @@ from modules.financial_examples import FinancialExamples
 
 def main(args):
     # get the command line arguments
-    examples = FinancialExamples() if args is None  else FinancialExamples(rate=float(args.rate), n_periods=int(args.n_periods), 
+    examples = FinancialExamples() if args is None  else FinancialExamples(rate=float(args.rate)/100/12, n_periods=int(args.n_periods), 
                                      principal=float(args.principal), when=args.when)
+    if args is not None:
+        print(args)
+    
     examples.example_1_1()
     examples.example_1_1_1()
     examples.example_1_4()
@@ -46,8 +49,8 @@ if __name__ == '__main__':
     elif (len(sys.argv) > 1):
         # get the command line argument
         parser = argparse.ArgumentParser(description='Compute amortization table data')
-        parser.add_argument('--rate', default=6/100/12, type=float, help='Discount rate')
-        parser.add_argument('--n_periods', default=48, type=int, help='Number of periods')
+        parser.add_argument('--rate', default=6, type=float, help='Annual interest rate as % value (ex: 6 for 6%)')
+        parser.add_argument('--n_periods', default=48, type=int, help='Number of loan periods')
         parser.add_argument('--principal', default=100000, type=float, help='Loan principal')
         parser.add_argument('--when', default='end', choices=['begin', 'end'], 
                             help='When payments are made')

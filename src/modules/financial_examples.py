@@ -270,11 +270,18 @@ class FinancialExamples:
 
     
     def example_7_1(self):
+        temp = self.loan_calc.when
+        
         print('\n\n example_7_1 =================================================================================================')
-        print('Compute periodic payment at begin of period')
-        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment_at_begin(fv=0)))   
-        print('Compute periodic payment at end of period')
-        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment_at_end(fv=0)))
+        print('Compute periodic payment if computation at begin of period')
+        self.loan_calc.when='begin'
+        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment()))
+        print('Compute periodic payment if computation at end of period')
+        self.loan_calc.when='end'
+        print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment()))
+        
+        self.loan_calc.when=temp
+
 
     def example_7_2(self):
         print('\n\n example_7_2 =================================================================================================')
@@ -287,6 +294,7 @@ class FinancialExamples:
         saved_csv = DataManager.save_dataframe(df, "amortization_table_begin")
         print(f"\nAmortization table saved to: {saved_csv}")
 
+        """
         print('\n\nCompute amortization table data')
         data = self.loan_calc.get_amortization_data()
         df = pd.DataFrame(data, columns=['Period', 'CA', 'Payment', 'Interest', 'RC', 'CR'])
@@ -295,6 +303,8 @@ class FinancialExamples:
         # Save the second DataFrame
         saved_csv = DataManager.save_dataframe(df, "amortization_table_end")
         print(f"\nAmortization table saved to: {saved_csv}")
+        """
+
 
         print('Drawing amortization data...')
         fig = plt.figure(figsize=(10, 12))
