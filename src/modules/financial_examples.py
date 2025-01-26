@@ -279,7 +279,7 @@ class FinancialExamples:
         print('Compute periodic payment if computation at end of period')
         self.loan_calc.when='end'
         print('periodic payment = ' + str(self.loan_calc.compute_periodic_payment()))
-        
+
         self.loan_calc.when=temp
 
 
@@ -291,19 +291,12 @@ class FinancialExamples:
         print(df)
 
         # Save the DataFrame
-        saved_csv = DataManager.save_dataframe(df, "amortization_table_begin")
+        saved_csv = DataManager.save_dataframe(df, "amortization_table_" + self.loan_calc.when, 'csv')
         print(f"\nAmortization table saved to: {saved_csv}")
+        saved_excel = DataManager.save_dataframe(df, "amortization_table_" + self.loan_calc.when, 'excel')
+        print(f"\nAmortization table saved to: {saved_excel}")
 
-        """
-        print('\n\nCompute amortization table data')
-        data = self.loan_calc.get_amortization_data()
-        df = pd.DataFrame(data, columns=['Period', 'CA', 'Payment', 'Interest', 'RC', 'CR'])
-        print(df)
-
-        # Save the second DataFrame
-        saved_csv = DataManager.save_dataframe(df, "amortization_table_end")
-        print(f"\nAmortization table saved to: {saved_csv}")
-        """
+       
 
 
         print('Drawing amortization data...')

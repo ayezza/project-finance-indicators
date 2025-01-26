@@ -28,7 +28,10 @@ class DataManager:
         # Clean filename and add extension
         # Create timestamp
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        clean_filename = f"{filename.replace(' ', '_').lower()}_{timestamp}.{format}"
+        
+        # Set the correct file extension based on format
+        extension = 'xlsx' if format.lower() == 'excel' else format.lower()
+        clean_filename = f"{filename.replace(' ', '_').lower()}_{timestamp}.{extension}"
         filepath = os.path.join(DataManager.OUTPUT_DIR, clean_filename)
         
         # Save based on format

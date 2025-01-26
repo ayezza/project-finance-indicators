@@ -57,16 +57,11 @@ class LoanCalculator:
                 CA = 0
             
             if self.when == 'begin' and i == 1:
-                #print("when == 'begin' and i == 1")
                 RC = R
                 interest_payment = 0
             else:
-                #print("when != 'begin' or i != 1")
                 interest_payment = CA * self.rate
                 RC = R - interest_payment
-            
-            #print("RC = ", RC)
-            #print("interest_payment = ", interest_payment)
 
             schedule.append((i, CA , R, interest_payment, R-interest_payment, CA-(R-interest_payment)))
         

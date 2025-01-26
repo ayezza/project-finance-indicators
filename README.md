@@ -51,7 +51,7 @@ source venv/bin/activate
 
 3. **Install dependencies**:
 ```bash
-pip install numpy pandas scipy sympy matplotlib numpy_financial
+pip install numpy pandas scipy sympy matplotlib numpy_financial openpyxl
 ```
 
 ## 📂 Project Structure
