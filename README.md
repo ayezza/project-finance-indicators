@@ -54,28 +54,30 @@ source venv/bin/activate
 pip install numpy pandas scipy sympy matplotlib numpy_financial
 ```
 
-## 📂 Directory Structure
+## 📂 Project Structure
 
 ```
 project-finance-indicators/
-├── .devcontainer/
-│   └── devcontainer.json
-├── .github/
-│   └── workflows/
-│       └── python-package.yml
-├── src/
-│   └── modules/
-│       ├── loan_calculator.py
-│       ├── financial_examples.py
-│       ├── data_manager.py
-│       └── graph_plotter.py
-├── .gitignore
 ├── LICENSE
 ├── MANIFEST.in
 ├── README.md
 ├── pyproject.toml
 ├── requirements.txt
-└── setup.py
+├── setup.py
+├── src/
+│   ├── main.py
+│   └── modules/
+│       ├── __init__.py
+│       ├── data_manager.py
+│       ├── financial_calculator.py
+│       ├── financial_examples.py
+│       ├── graph_plotter.py
+│       └── loan_calculator.py
+└── output/
+    ├── data/
+    │   └── (Generated CSV files)
+    └── plots/
+        └── (Generated plot images)
 ```
 
 ## 📚 Usage
