@@ -87,21 +87,20 @@ python main.py
 
 ### Command Line Arguments for table amortization generation
 ```bash
-python main.py --rate <loan rate in %> --n_periods <nmber of periods> --principal <loan principal> --when <'begin' or 'end'>
+python main.py --rate <loan rate in %> --n_periods <number of periods> --principal <loan principal> --when <'begin' or 'end'>
 ```
 
-```
+
 **Arguments:**
 - **rate**: Annual interest rate as % value (ex: 6 for 6%)
 - **n_periods**: Number of loan periods (in months or years)
 - **principal**: Loan principal
 - **when**: When payments are made (begin or end)
-```
+
 
 ### command line arguments for examples execution
 ```bash
 python main.py --examples
-```
 ```
 
 ### Available Examples
