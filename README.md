@@ -97,6 +97,10 @@ python main.py --rate <loan rate in %> --n_periods <number of periods> --princip
 - **principal**: Loan principal
 - **when**: When payments are made (begin or end)
 
+**Example:**
+```bash
+python main.py --rate 6 --n_periods 48 --principal 100000 --when 'end'
+```
 
 ### command line arguments for examples execution
 ```bash
