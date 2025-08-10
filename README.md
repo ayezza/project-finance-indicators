@@ -42,7 +42,7 @@ python -m venv venv
 2. **Activate the virtual environment**:
 - **Windows**:
 ```bash
-venv\Scripts\activate
+venv\Scripts\activate.bat
 ```
 - **Unix/MacOS**:
 ```bash
@@ -83,11 +83,13 @@ project-finance-indicators/
 ## 📚 Usage
 
 ### Basic Execution
+Run from src directory this command-line:
 ```bash
 python main.py
 ```
 
 ### Command Line Arguments for table amortization generation
+Run from src directory this command-line:
 ```bash
 python main.py --rate <loan rate in %> --n_periods <number of periods> --principal <loan principal> --when <'begin' or 'end'>
 ```
