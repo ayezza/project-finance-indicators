@@ -6,6 +6,8 @@ This code is completely free and can be modified without any restriction
 Examples given below are presented and explained in my article: 
 QUELQUES NOTIONS DE BASE DE LA FINANCE DES PROJETS available at this web address: 
 https://www.anigraphics.fr/introduction/math_finance/basic_finance_elements-v3.pdf
+and at my LinkedIn profile page:
+https://www.linkedin.com/posts/abdel-yezza-consultant_crit%C3%A8res-d%C3%A9cisionnels-financiers-de-s%C3%A9lection-activity-6823702680762888192-qFuh/
 """
 
 import sys
